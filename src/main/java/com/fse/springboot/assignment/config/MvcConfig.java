@@ -25,7 +25,7 @@ import com.fse.springboot.assignment.validation.EmailValidator;
 import com.fse.springboot.assignment.validation.PasswordMatchesValidator;
 
 @Configuration
-@ComponentScan(basePackages = { "org.baeldung.web" })
+@ComponentScan(basePackages = { "com.fse.springboot.assignment..web" })
 @EnableWebMvc
 public class MvcConfig implements WebMvcConfigurer {
 

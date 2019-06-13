@@ -36,24 +36,24 @@ public class DeviceService {
 
     private static final String UNKNOWN = "UNKNOWN";
 
-    @Value("${support.email}")
-    private String from;
+    //@Value("${support.email}")
+    //private String from;
 
     private DeviceMetadataRepository deviceMetadataRepository;
     private DatabaseReader databaseReader;
     private Parser parser;
-    private JavaMailSender mailSender;
+    //private JavaMailSender mailSender;
     private MessageSource messages;
 
     public DeviceService(DeviceMetadataRepository deviceMetadataRepository,
                          DatabaseReader databaseReader,
                          Parser parser,
-                         JavaMailSender mailSender,
+                         //JavaMailSender mailSender,
                          MessageSource messages) {
         this.deviceMetadataRepository = deviceMetadataRepository;
         this.databaseReader = databaseReader;
         this.parser = parser;
-        this.mailSender = mailSender;
+        //this.mailSender = mailSender;
         this.messages = messages;
     }
 
@@ -160,9 +160,9 @@ public class DeviceService {
                 " " + ip;
 
         notification.setText(text);
-        notification.setFrom(from);
+        //notification.setFrom(from);
 
-        mailSender.send(notification);
+        //mailSender.send(notification);
     }
 
 }

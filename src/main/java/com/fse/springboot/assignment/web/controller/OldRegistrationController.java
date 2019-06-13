@@ -48,8 +48,8 @@ public class OldRegistrationController {
     @Autowired
     private MessageSource messages;
 
-    @Autowired
-    private JavaMailSender mailSender;
+    //@Autowired
+    //private JavaMailSender mailSender;
 
     @Autowired
     private ApplicationEventPublisher eventPublisher;
@@ -127,7 +127,7 @@ public class OldRegistrationController {
         try {
             final String appUrl = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
             final SimpleMailMessage email = constructResetVerificationTokenEmail(appUrl, request.getLocale(), newToken, user);
-            mailSender.send(email);
+            //mailSender.send(email);
         } catch (final MailAuthenticationException e) {
             LOGGER.debug("MailAuthenticationException", e);
             return "redirect:/emailError.html?lang=" + locale.getLanguage();
@@ -153,7 +153,7 @@ public class OldRegistrationController {
         try {
             final String appUrl = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
             final SimpleMailMessage email = constructResetTokenEmail(appUrl, request.getLocale(), token, user);
-            mailSender.send(email);
+            //mailSender.send(email);
         } catch (final MailAuthenticationException e) {
             LOGGER.debug("MailAuthenticationException", e);
             return "redirect:/emailError.html?lang=" + request.getLocale().getLanguage();

@@ -22,8 +22,8 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
     @Autowired
     private MessageSource messages;
 
-    @Autowired
-    private JavaMailSender mailSender;
+   // @Autowired
+    //private JavaMailSender mailSender;
 
     @Autowired
     private Environment env;
@@ -41,7 +41,7 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
         service.createVerificationTokenForUser(user, token);
 
         final SimpleMailMessage email = constructEmailMessage(event, user, token);
-        mailSender.send(email);
+        //mailSender.send(email);
     }
 
     //

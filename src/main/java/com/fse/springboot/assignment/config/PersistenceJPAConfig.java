@@ -19,8 +19,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @PropertySource({"classpath:persistence.properties"})
-@ComponentScan({"com.fse.springboot.assignment.persistence"})
-@EnableJpaRepositories(basePackages="com.fse.springboot.assignment.persistence.dao")
+@ComponentScan({"com.fse.springboot.assignment.persistance"})
+@EnableJpaRepositories(basePackages="com.fse.springboot.assignment.persistance.dao")
 public class PersistenceJPAConfig {
 	
 	@Autowired
@@ -40,7 +40,7 @@ public class PersistenceJPAConfig {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(datasource());
-		em.setPackagesToScan(new String[] {"com.fse.springboot.assignment.persistence.model"});
+		em.setPackagesToScan(new String[] {"com.fse.springboot.assignment.persistance.model"});
 		final HibernateJpaVendorAdapter vendorAdaptor = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdaptor); 
 		em.setJpaProperties(additionalProperties());

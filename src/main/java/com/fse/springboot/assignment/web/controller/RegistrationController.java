@@ -56,8 +56,8 @@ public class RegistrationController {
     @Autowired
     private MessageSource messages;
 
-    @Autowired
-    private JavaMailSender mailSender;
+   // @Autowired
+    //private JavaMailSender mailSender;
 
     @Autowired
     private ApplicationEventPublisher eventPublisher;
@@ -112,7 +112,7 @@ public class RegistrationController {
     public GenericResponse resendRegistrationToken(final HttpServletRequest request, @RequestParam("token") final String existingToken) {
         final VerificationToken newToken = userService.generateNewVerificationToken(existingToken);
         final User user = userService.getUser(newToken.getToken());
-        mailSender.send(constructResendVerificationTokenEmail(getAppUrl(request), request.getLocale(), newToken, user));
+        //mailSender.send(constructResendVerificationTokenEmail(getAppUrl(request), request.getLocale(), newToken, user));
         return new GenericResponse(messages.getMessage("message.resendToken", null, request.getLocale()));
     }
 
@@ -124,7 +124,7 @@ public class RegistrationController {
         if (user != null) {
             final String token = UUID.randomUUID().toString();
             userService.createPasswordResetTokenForUser(user, token);
-            mailSender.send(constructResetTokenEmail(getAppUrl(request), request.getLocale(), token, user));
+            //mailSender.send(constructResetTokenEmail(getAppUrl(request), request.getLocale(), token, user));
         }
         return new GenericResponse(messages.getMessage("message.resetPasswordEmail", null, request.getLocale()));
     }
